@@ -29,7 +29,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
 
 ## On JS side
 
-Create a schema and using that schema, create a model:
+Create a schema (a template used to create models) and using that schema, create a model
+(**a class** that allows us instantiate data that could be stored in MongoDB):
 ```
 const personSchema = new mongoose.Schema({
     name: String,
@@ -38,7 +39,10 @@ const personSchema = new mongoose.Schema({
     school: String,
 });
 
+// The model class
 const Person = mongoose.model("Person", personSchema);
+
+// The instantiated Data
 const bob = new Person({ name: "Bob", age: 21, email: "123@gmail.com", school: "Harvard" });
 
 ```
